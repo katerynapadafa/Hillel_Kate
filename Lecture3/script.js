@@ -1,32 +1,37 @@
 const mathOperator = getMathOperator();
 const firstNumber = getNumber('Enter first number');
 const secondNumber = getNumber('Enter second number');
-const result = calculate(firstNumber, secondNumber, mathOperator);
-showFinalResult(firstNumber, secondNumber, mathOperator, result);
+const validOperator = isOperatorValid(mathOperator);
+const result = calculate(firstNumber, secondNumber, validOperator);
+showFinalResult(firstNumber, secondNumber, validOperator, result);
 
 function getMathOperator() {
-    const operator = prompt('Which math operation would you like to do? (Type +, -, * or /)');
+    let operator = prompt('Which math operation would you like to do? (Type +, -, * or /)');
+    return isOperatorValid(operator);
+};
+
+function isOperatorValid(operator) {
     if (operator !== '+' &&
         operator != '-' &&
         operator != '*' &&
         operator != '/') {
         alert('Invalid math operator! Type +, -, * or /.');
         return getMathOperator();
-    }
+    };
     return operator;
-}
+};
 
 function getNumber(message) {
     const userNumber = +prompt(message);
     if (isNaN(userNumber)) {
         alert('Use numbers only!');
         return getNumber(message);
-    }
+    };
     return userNumber;
-}
+};
 
-function calculate(firstNumber, secondNumber, mathOperator) {
-    switch (mathOperator) {
+function calculate(firstNumber, secondNumber, operator) {
+    switch (operator) {
         case '+':
             return firstNumber + secondNumber;
         case '-':
@@ -37,9 +42,9 @@ function calculate(firstNumber, secondNumber, mathOperator) {
             return firstNumber / secondNumber;
         default:
             alert('Invalid math operation');
-    }
-}
+    };
+};
 
 function showFinalResult(firstNumber, secondNumber, mathOperator, result) {
-    alert(`Your result: ${firstNumber} ${mathOperator} ${secondNumber} = ${result}`)
-}
+    alert(`Your result: ${firstNumber} ${mathOperator} ${secondNumber} = ${result}`);
+};
