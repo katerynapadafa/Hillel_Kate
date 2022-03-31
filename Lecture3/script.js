@@ -1,12 +1,11 @@
 const mathOperator = getMathOperator();
 const firstNumber = getNumber('Enter first number');
 const secondNumber = getNumber('Enter second number');
-const validOperator = isOperatorValid(mathOperator);
-const result = calculate(firstNumber, secondNumber, validOperator);
-showFinalResult(firstNumber, secondNumber, validOperator, result);
+const result = calculate(firstNumber, secondNumber, mathOperator);
+showFinalResult(firstNumber, secondNumber, mathOperator, result);
 
 function getMathOperator() {
-    let operator = prompt('Which math operation would you like to do? (Type +, -, * or /)');
+    const operator = prompt('Which math operation would you like to do? (Type +, -, * or /)');
     return isOperatorValid(operator);
 };
 
