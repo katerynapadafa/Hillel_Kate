@@ -11,14 +11,23 @@ function getMathOperator() {
 
 function isOperatorValid(operator) {
     if (operator !== '+' &&
-        operator != '-' &&
-        operator != '*' &&
-        operator != '/') {
+        operator !== '-' &&
+        operator !== '*' &&
+        operator !== '/') {
         alert('Invalid math operator! Type +, -, * or /.');
         return getMathOperator();
     };
     return operator;
 };
+
+
+// function getMathOperator() {
+//     let operator;
+//     do {
+//         operator = prompt("Operator?")
+//     } while (!isOperatorValid(operator))
+// return operator
+// };
 
 function getNumber(message) {
     const userNumber = +prompt(message);
@@ -28,6 +37,18 @@ function getNumber(message) {
     };
     return userNumber;
 };
+
+// function getNumber(msg) {
+//     let operand;
+//     do {
+//         operand = prompt(msg);
+//     } while (isOperandValid(operand))
+//     return +operand;
+// };
+
+// function isOperandValid(value) {
+//     return isNaN(value) || value === '' || value === null;
+// };
 
 function calculate(firstNumber, secondNumber, operator) {
     switch (operator) {
