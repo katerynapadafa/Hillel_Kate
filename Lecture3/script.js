@@ -62,6 +62,7 @@ function calculate(firstNumber, secondNumber, operator) {
             return firstNumber / secondNumber;
         default:
             alert('Invalid math operation');
+            return null;
     };
 };
 
