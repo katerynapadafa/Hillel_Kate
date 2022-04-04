@@ -30,38 +30,37 @@ function getOperands() {
 };
 
 function calculate(operands, operator) {
-    const arrayOfOperands = operands;
     let sum = 0;
-    let result = arrayOfOperands[0];
+    let result = operands[0];
 
     switch (operator) {
         case '+':
-            for (let i = 0; i < arrayOfOperands.length; i++) {
-                sum += Number(arrayOfOperands[i]);
+            for (let i = 0; i < operands.length; i++) {
+                sum += Number(operands[i]);
             };
             return sum;
         case '-':
-            for (let i = 1; i < arrayOfOperands.length; i++) {
-                result -= arrayOfOperands[i];
+            for (let i = 1; i < operands.length; i++) {
+                result -= operands[i];
             };
             return result;
         case '*':
-            for (let i = 1; i < arrayOfOperands.length; i++) {
-                result *= arrayOfOperands[i];
+            for (let i = 1; i < operands.length; i++) {
+                result *= operands[i];
             };
             return result;
         case '/':
-            for (let i = 1; i < arrayOfOperands.length; i++) {
-                result /= arrayOfOperands[i];
+            for (let i = 1; i < operands.length; i++) {
+                result /= operands[i];
             };
             return result;
     };
 };
 
 function getResult(operands, operator, result) {
-    let operandsAndOperator
+    let operandsAndOperator;
     for (let i = 0; i < operands.length; i++) {
         operandsAndOperator = operands.join(operator)
-    }
+    };
     return alert(` Your result: ${operandsAndOperator} = ${result}`)
 };
