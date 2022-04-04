@@ -1,8 +1,7 @@
 const mathOperator = getMathOperator();
 const operands = getOperands();
-const arrayOfOperands = getArrayOfOperands(operands);
-const result = calculate(arrayOfOperands, mathOperator);
-getResult(arrayOfOperands, mathOperator, result)
+const result = calculate(operands, mathOperator);
+getResult(operands, mathOperator, result)
 
 
 function getMathOperator() {
@@ -27,20 +26,13 @@ function getOperands() {
         alert('Enter operands!')
         return getOperands();
     };
-    return operands;
-};
-
-function getArrayOfOperands(string) {
-    const arrayOfOperands = string.split(',');
-    return arrayOfOperands;
+    return operands.split(',');
 };
 
 function calculate(operands, operator) {
     const arrayOfOperands = operands;
     let sum = 0;
-    let sub = arrayOfOperands[0];
-    let mult = arrayOfOperands[0];
-    let div = arrayOfOperands[0];
+    let result = arrayOfOperands[0];
 
     switch (operator) {
         case '+':
@@ -50,27 +42,26 @@ function calculate(operands, operator) {
             return sum;
         case '-':
             for (let i = 1; i < arrayOfOperands.length; i++) {
-                sub -= arrayOfOperands[i];
+                result -= arrayOfOperands[i];
             };
-            return sub;
+            return result;
         case '*':
             for (let i = 1; i < arrayOfOperands.length; i++) {
-                mult *= arrayOfOperands[i];
+                result *= arrayOfOperands[i];
             };
-            return mult;
+            return result;
         case '/':
             for (let i = 1; i < arrayOfOperands.length; i++) {
-                div /= arrayOfOperands[i];
+                result /= arrayOfOperands[i];
             };
-            return div;
+            return result;
     };
 };
 
 function getResult(operands, operator, result) {
-    let operandsAndOperator = operands[0];
-    for (let i = 1; i < operands.length; i++) {
-        operandsAndOperator
-            += ` ${operator}${operands[i]}`
+    let operandsAndOperator
+    for (let i = 0; i < operands.length; i++) {
+        operandsAndOperator = operands.join(operator)
     }
-    alert(` Your result: ${operandsAndOperator} = ${result}`)
+    return alert(` Your result: ${operandsAndOperator} = ${result}`)
 };
