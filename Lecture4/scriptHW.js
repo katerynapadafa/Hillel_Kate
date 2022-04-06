@@ -30,37 +30,55 @@ function getOperands() {
 };
 
 function calculate(operands, operator) {
-    let sum = 0;
-    let result = operands[0];
+    // let sum = 0;
+    // let result = operands[0];
+    // switch (operator) {
+    //     case '+':
+    //         for (let i = 0; i < operands.length; i++) {
+    //             sum += Number(operands[i]);
+    //         };
+    //         return sum;
+    //     case '-':
+    //         for (let i = 1; i < operands.length; i++) {
+    //             result -= operands[i];
+    //         };
+    //         return result;
+    //     case '*':
+    //         for (let i = 1; i < operands.length; i++) {
+    //             result *= operands[i];
+    //         };
+    //         return result;
+    //     case '/':
+    //         for (let i = 1; i < operands.length; i++) {
+    //             result /= operands[i];
+    //         };
+    //         return result;
+    // };
 
-    switch (operator) {
-        case '+':
-            for (let i = 0; i < operands.length; i++) {
-                sum += Number(operands[i]);
-            };
-            return sum;
-        case '-':
-            for (let i = 1; i < operands.length; i++) {
+    if (!isOperatorValid(operator) || operator.length === 0) {
+        alert('Invalid operator');
+        return null;
+    }
+    let result = operands[0];
+    for (let i = 1; i < operands.length; i++) {
+        switch (operator) {
+            case '+':
+                result += operands[i];
+                break;
+            case '-':
                 result -= operands[i];
-            };
-            return result;
-        case '*':
-            for (let i = 1; i < operands.length; i++) {
+                break;
+            case '*':
                 result *= operands[i];
-            };
-            return result;
-        case '/':
-            for (let i = 1; i < operands.length; i++) {
+                break;
+            case '/':
                 result /= operands[i];
-            };
-            return result;
+                break;
+        };
     };
 };
 
 function getResult(operands, operator, result) {
-    let operandsAndOperator;
-    for (let i = 0; i < operands.length; i++) {
-        operandsAndOperator = operands.join(operator)
-    };
+    let operandsAndOperator = operands.join(` ${operator} `)
     return alert(` Your result: ${operandsAndOperator} = ${result}`)
 };
