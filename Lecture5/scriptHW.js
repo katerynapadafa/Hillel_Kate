@@ -23,6 +23,9 @@ const students = [{
 const studentMarks = getStudentMark();
 getAverageStudentMark(studentMarks);
 getAverageGroupMark(students);
+minAverageMark()
+getBiggestNumberOfMarks();
+
 
 function getStudentMark(studentIndex) {
     studentIndex = +prompt('Enter student index');
@@ -38,4 +41,34 @@ function getAverageGroupMark(students) {
     const groupMarksArray = students.map((el) => el.marks).flat();
     const averageGroupMark = groupMarksArray.reduce((acc, val) => acc + val) / groupMarksArray.length;
     alert(`Average group mark: ${averageGroupMark}`);
+};
+
+function minAverageMark() {
+    const arrayOfMarks = students.map((el) => el.marks);
+    const minMark = arrayOfMarks.map(getAverageStudentMark)
+    console.log(minMark);
+}
+
+function getBiggestNumberOfMarks() {
+    const arrayOfMarks = students.map((el) => el.marks);
+    const biggestArray = arrayOfMarks.reduce((acc, val) => acc.length > val.length ? acc : val);
+    const numberOfMarks = biggestArray.length
+    const index = arrayOfMarks.indexOf(biggestArray)
+    const name = students[index].name;
+    alert(`The biggest number of marks has ${name}: ${numberOfMarks} marks`);
+};
+
+// Alexandr's code// 
+
+function getStudentAverageMark({ marks }) {
+    return avg = arrAvg(mar)
+};
+
+function getGroupAverageMark(students) {
+    const groupMarks = students.flatmap(({ marks }) => marks)
+    return arrAvg(groupMarks)
+};
+
+function arrAvg(arr) {
+    return arr.reduce((acc, mark) => acc + mark) / arr.length;
 };
