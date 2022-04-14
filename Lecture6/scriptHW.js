@@ -1,6 +1,7 @@
 const obj = {
     name: 'Alex',
     age: 33,
+    marks: [10, 9, 8, 10, 9],
     address: {
         country: 'UA',
         city: 'Dnipro'
@@ -11,7 +12,7 @@ function getCopy(obj) {
     let objCopy = {};
     for (let key in obj) {
         const value = obj[key];
-        if (typeof value === 'object' || typeof value === null) {
+        if (typeof value === 'object' || value === null) {
             return objCopy = {
                 ...objCopy,
                 [key]: getCopy(value)
