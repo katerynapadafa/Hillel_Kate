@@ -38,11 +38,13 @@ function calculate() {
 
 function getValue1() {
     const val1 = firstNumberEl.value;
-    if (val1 === '' || val1 === null) {
-        return errorEl.textContent = 'Please, check your first number!';
+    if (val1 === ' ' || val1 === null) {
+        errorEl.textContent = 'Please, check your first number!';
+        getValue1()
     }
     if (isNaN(val1)) {
-        return errorEl.textContent = 'Your first element is not a number!';
+        errorEl.textContent = 'Your first element is not a number!';
+        getValue1()
     }
     errorEl.textContent = '';
     return val1
@@ -50,11 +52,13 @@ function getValue1() {
 
 function getValue2() {
     const val2 = secondNumberEl.value;
-    if (val2 === '' || val2 === null) {
-        return errorEl.textContent = 'Please, check your second number!';
+    if (val2 === ' ' || val2 === null) {
+        errorEl.textContent = 'Please, check your second number!';
+        getValue2()
     }
     if (isNaN(val2)) {
-        return errorEl.textContent = 'Your second element is not a number!';
+        errorEl.textContent = 'Your second element is not a number!';
+        getValue2()
     }
     errorEl.textContent = '';
     return val2
