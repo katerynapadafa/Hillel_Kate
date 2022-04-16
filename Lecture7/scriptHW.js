@@ -1,13 +1,13 @@
 const calc = createCalculator(10);
 
 function createCalculator(a) {
-    let result = a;
     return {
-        sum: (b) => result += b,
-        sub: (b) => result -= b,
-        mult: (b) => result *= b,
-        div: (b) => result /= b,
-        set: (b) => result = b
+        sum: (b) => createCalculator(a + b),
+        sub: (b) => createCalculator(a - b),
+        mult: (b) => createCalculator(a * b),
+        div: (b) => createCalculator(a / b),
+        set: (b) => createCalculator(b),
+        get: () => a
     }
 }
 
