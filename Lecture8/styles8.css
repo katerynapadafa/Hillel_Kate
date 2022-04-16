@@ -49,13 +49,26 @@ input:focus {
 select {
     color: var(--dark-pink);
     display: flex;
-    width: 100px
+    width: 100px;
+    cursor: pointer;
 }
 
-.plus,
+select:hover {
+    cursor: pointer;
+}
+
+select:focus {
+    outline: none;
+}
+
+.error-text,
 .result-text {
     font-size: 40px;
     margin-top: 20px;
+}
+
+.error-text {
+    color: red;
 }
 
 .calculate-btn {
