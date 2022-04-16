@@ -38,7 +38,7 @@ function calculate() {
 
 function getValue1() {
     const val1 = firstNumberEl.value;
-    if (val1 === ' ' || val1 === null) {
+    if (val1 === '' || val1 === null) {
         errorEl.textContent = 'Please, check your first number!';
         getValue1()
     }
@@ -52,7 +52,7 @@ function getValue1() {
 
 function getValue2() {
     const val2 = secondNumberEl.value;
-    if (val2 === ' ' || val2 === null) {
+    if (val2 === '' || val2 === null) {
         errorEl.textContent = 'Please, check your second number!';
         getValue2()
     }
