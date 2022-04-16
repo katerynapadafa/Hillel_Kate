@@ -5,6 +5,7 @@ const resultTextEl = document.querySelector('.result-text')
 const operatorEl = document.querySelector('select')
 
 calculateBtnEl.addEventListener('click', onCalculateBtn);
+firstNumberEl.addEventListener('click', onInput)
 
 function onCalculateBtn() {
     calculate();
@@ -12,9 +13,9 @@ function onCalculateBtn() {
 }
 
 function calculate() {
-    const a = getInput(firstNumberEl);
-    const b = getInput(secondNumberEl);
-    const op = operatorEl.value;
+    const a = getValue(firstNumberEl);
+    const b = getValue(secondNumberEl);
+    const op = getValue(operatorEl);
     if (a === '' || b === '' || a === null || b === null) {
         return resultTextEl.textContent = 'Please, check your numbers!';
     };
@@ -39,8 +40,8 @@ function calculate() {
     return resultTextEl.textContent = `Your result = ${result} `
 }
 
-function getInput(input) {
-    return input.value;
+function getValue(element) {
+    return element.value;
 }
 
 function clearInput() {
