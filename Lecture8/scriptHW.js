@@ -3,11 +3,11 @@ const secondNumberEl = document.getElementById('second-number');
 const calculateBtnEl = document.querySelector('.calculate-btn');
 const resultTextEl = document.querySelector('.result-text')
 const errorEl = document.querySelector('.error-text')
-const operatorEl = document.querySelector('select')
+const operatorEl = document.querySelector('#select')
 
 calculateBtnEl.addEventListener('click', onCalculateBtn);
-firstNumberEl.addEventListener('input', getValue1)
-secondNumberEl.addEventListener('input', getValue2)
+firstNumberEl.addEventListener('input', getValue)
+secondNumberEl.addEventListener('input', getValue)
 
 function onCalculateBtn() {
     calculate();
@@ -15,8 +15,7 @@ function onCalculateBtn() {
 }
 
 function calculate() {
-    const a = getValue1();
-    const b = getValue2();
+    const [a, b] = getValue();
     const op = operatorEl.value;
     let result = 0;
     switch (op) {
@@ -36,32 +35,20 @@ function calculate() {
     return resultTextEl.textContent = `Your result = ${result}`
 }
 
-function getValue1() {
+function getValue() {
     const val1 = firstNumberEl.value;
-    if (val1 === '' || val1 === null) {
-        errorEl.textContent = 'Please, check your first number!';
-        getValue1()
-    }
-    if (isNaN(val1)) {
-        errorEl.textContent = 'Your first element is not a number!';
-        getValue1()
-    }
-    errorEl.textContent = '';
-    return val1
-}
-
-function getValue2() {
     const val2 = secondNumberEl.value;
-    if (val2 === '' || val2 === null) {
-        errorEl.textContent = 'Please, check your second number!';
-        getValue2()
+
+    if (val1 === '' || val2 === '') {
+        errorEl.textContent = 'Please, check your numbers!';
+        return
     }
-    if (isNaN(val2)) {
-        errorEl.textContent = 'Your second element is not a number!';
-        getValue2()
+    if (isNaN(val1) || isNaN(val2)) {
+        errorEl.textContent = 'Your elements are not  numbers!';
+        return
     }
     errorEl.textContent = '';
-    return val2
+    return [val1, val2];
 }
 
 function clearInput() {
