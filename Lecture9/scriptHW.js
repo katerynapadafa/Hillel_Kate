@@ -9,13 +9,14 @@ inputEl.addEventListener('input', getToDo);
 function onClickBtn() {
     const task = createToDo();
     listEl.prepend(task);
+    task.classList.add('to-do');
     clearInput();
+    task.addEventListener('click', () => task.classList.toggle('done'))
 }
 
 function createToDo() {
     const toDo = document.createElement('div');
     toDo.textContent = getToDo();
-    toDo.classList.add('to-do');
 
     return toDo;
 }
