@@ -35,9 +35,10 @@ function calculate() {
     return resultTextEl.textContent = `Your result = ${result}`
 }
 
-function getValue() {
+function getValue(event) {
     const val1 = firstNumberEl.value;
-    const val2 = secondNumberEl.value;
+    console.log(event.currentTarget.value);
+
 
     if (val1 === '' || val2 === '') {
         errorEl.textContent = 'Please, check your numbers!';
