@@ -14,17 +14,17 @@
     <header>
         <h1>To Do List</h1>
     </header>
-    <div>
+    <form id="form">
         <input type="text" id="input" name="toDoText" placeholder="Today I need to...">
-        <button id="addButton">Add</button>
+        <button type="submit" id="addButton">Add</button>
         <div id="list" class="list">
 
         </div>
         <div id="error"></div>
-    </div>
+    </form>
 
     <script type="text/template" id="template">
-        <div class="to-do">
+        <div class="to-do" data-id="{{id}}">
             {{toDoText}}
             <button type="button" class="delete-button">❌</button>
         </div>

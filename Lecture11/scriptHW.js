@@ -1,4 +1,4 @@
-const DELETE_BUTTON_CLASS = 'delete-button';
+const DELETE_BUTTON_CLASS = "delete-button";
 const INVALID_INPUT_CLASS = 'invalid'
 const LIST_SELECTOR = '.list'
 const TO_DO_SELECTOR = '.to-do'
@@ -8,24 +8,37 @@ const listEl = document.getElementById('list');
 const addButtonEl = document.getElementById('addButton');
 const errorEl = document.getElementById('error');
 const toDoTemplate = document.querySelector('#template').innerHTML;
+const formEl = document.getElementById('form')
 
 addButtonEl.addEventListener('click', onAddClickBtn);
 inputEl.addEventListener('keyup', validateToDo);
 listEl.addEventListener('click', onDeleteButtonClick)
 
+let toDoListObj = [{
+    id: 13,
+    toDoText: "template to do"
+}];
 
-function onAddClickBtn() {
+init();
+
+function onAddClickBtn(e) {
+    e.preventDefault();
+
     const newToDo = getToDo();
     validateToDo(newToDo)
     addToDo(newToDo);
-    clearInput()
+    clearInput();
 }
 
 function onDeleteButtonClick(e) {
     if (e.target.classList.contains(DELETE_BUTTON_CLASS)) {
-        const el = getToDoEl(e.target);
-        removeToDo(el)
+        const id = getToDoId(e.target);
+        removeToDo(id);
     }
+}
+
+function init() {
+    renderList();
 }
 
 function validateToDo(toDo) {
@@ -37,10 +50,10 @@ function validateToDo(toDo) {
 }
 
 function getToDo() {
-    const toDoListObj = {};
-    toDoListObj[inputEl.name] = inputEl.value;
+    const toDoObj = {}
+    toDoObj[inputEl.name] = inputEl.value;
 
-    return toDoListObj;
+    return toDoObj;
 }
 
 
@@ -49,15 +62,19 @@ function inValidToDo() {
 }
 
 function addToDo(toDoEl) {
-    const newToDoHTML = generateToDoHTML(toDoEl);
+    toDoEl.id = Date.now();
+    toDoListObj.push(toDoEl)
 
-    listEl.insertAdjacentHTML('beforeend', newToDoHTML);
+    renderList();
+}
+
+function renderList() {
+    listEl.innerHTML = toDoListObj.map(generateToDoHTML).join('\n');
 }
 
 function generateToDoHTML(toDo) {
     return interpolate(toDoTemplate, toDo);
 }
-
 
 function showError() {
     inputEl.classList.add(INVALID_INPUT_CLASS)
@@ -72,13 +89,15 @@ function hideError() {
     addButtonEl.disabled = false;
 }
 
+function removeToDo(id) {
+    toDoListObj = toDoListObj.filter((obj) => obj.id !== id);
+    renderList();
 
-function getToDoEl(el) {
-    return el.closest(TO_DO_SELECTOR);
 }
 
-function removeToDo(el) {
-    el.remove();
+function getToDoId(el) {
+    const toDoEl = el.closest(TO_DO_SELECTOR);
+    return +toDoEl.dataset.id;
 }
 
 function clearInput() {
@@ -86,10 +105,9 @@ function clearInput() {
 }
 
 function interpolate(template, object) {
-    let el
     for (key in object) {
-        el = template.replace(`{{${key}}}`, object[key]);
+        template = template.replaceAll(`{{${key}}}`, object[key]);
     }
-    return el;
+    return template;
 
 }
