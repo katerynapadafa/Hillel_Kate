@@ -37,9 +37,7 @@ function validateToDo(toDo) {
 }
 
 function getToDo() {
-
     const toDoListObj = {};
-
     toDoListObj[inputEl.name] = inputEl.value;
 
     return toDoListObj;
