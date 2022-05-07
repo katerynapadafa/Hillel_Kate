@@ -92,7 +92,6 @@ function hideError() {
 function removeToDo(id) {
     toDoListObj = toDoListObj.filter((obj) => obj.id !== id);
     renderList();
-
 }
 
 function getToDoId(el) {
