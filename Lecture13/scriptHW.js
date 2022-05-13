@@ -14,11 +14,8 @@ function Calculator(a) {
     this.div = function(b) {
         return r /= b
     }
-    this.result = function() {
-        return r = r
-    }
+    this.result = r = r
 }
-
 
 console.log(calc.sum(5)); // 15
 console.log(calc.mult(10)); // 150
@@ -26,4 +23,4 @@ console.log(calc.sub(40)); // 110
 console.log(calc.div(10)); // 11
 console.log(calc.result()); //11
 console.log(calc.sum(100)); // 111
-console.log(calc.result()); //111
+console.log(calc.result); //111
