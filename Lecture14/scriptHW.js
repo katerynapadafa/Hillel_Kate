@@ -47,6 +47,11 @@ class Hamburger {
         this.price += topping.price
         this.callories += topping.callories
     }
+    removeTopping(topping) {
+        this.price -= topping.price
+        this.callories -= topping.callories
+    }
+
     getPrice() {
         return this.price
     }
