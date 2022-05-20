@@ -37,9 +37,12 @@ function onContactsListClick(e) {
 }
 
 function init() {
+    fetchList();
 
-    // contactsListArray = restoreData()
-    fetch('https://jsonplaceholder.typicode.com/users')
+}
+
+function fetchList() {
+    fetch('https://5dd3d5ba8b5e080014dc4bfa.mockapi.io/users')
         .then(r => r.json())
         .then(data => {
             contactsListArray = data
@@ -75,12 +78,17 @@ function isPhoneValid(value) {
 }
 
 function addContact(contact) {
-    contact.id = Date.now();
-    contactsListArray.push(contact)
-
-    saveData();
-    renderList();
+    fetch('https://5dd3d5ba8b5e080014dc4bfa.mockapi.io/users/', {
+        method: 'POST',
+        body: JSON.stringify(contact),
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    }).then((data) => {
+        fetchList();
+    })
 }
+
 
 function renderList() {
     contactsList.innerHTML = contactsListArray.map(generateContactHtml).join('\n');
@@ -95,10 +103,12 @@ function resetForm() {
 }
 
 function removeContact(id) {
-    contactsListArray = contactsListArray.filter((obj) => obj.id !== id);
-
-    saveData();
-    renderList();
+    fetch('https://5dd3d5ba8b5e080014dc4bfa.mockapi.io/users/' + id, {
+            method: 'DELETE',
+        })
+        .then((data) => {
+            fetchList();
+        })
 }
 
 function getContactId(el) {
