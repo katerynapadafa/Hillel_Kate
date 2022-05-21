@@ -2,7 +2,7 @@ const DELETE_BTN_CLASS = 'delete-button';
 const EDIT_BTN_CLASS = 'edit-btn';
 const CONTACT_ROW_SELECTOR = '.contact-row';
 const ERROR_TEXT = 'Some of your fields are not valid';
-const STORAGE_KEY = 'contactsList'
+const API_URL = 'https://5dd3d5ba8b5e080014dc4bfa.mockapi.io/users'
 
 const contactForm = document.querySelector('#form');
 const contactsList = document.querySelector('#phone-book-list');
@@ -47,7 +47,7 @@ function init() {
 }
 
 function fetchList() {
-    fetch('https://5dd3d5ba8b5e080014dc4bfa.mockapi.io/users')
+    fetch(API_URL)
         .then(r => r.json())
         .then(data => {
             contactsListArray = data
@@ -101,7 +101,7 @@ function saveContact(contact) {
 }
 
 function updateContact(contact) {
-    fetch('https://5dd3d5ba8b5e080014dc4bfa.mockapi.io/users/' + contact.id, {
+    fetch(API_URL + '/' + contact.id, {
         method: "PUT",
         body: JSON.stringify(contact),
         headers: {
@@ -113,7 +113,7 @@ function updateContact(contact) {
 }
 
 function addContact(contact) {
-    fetch('https://5dd3d5ba8b5e080014dc4bfa.mockapi.io/users', {
+    fetch(API_URL, {
         method: 'POST',
         body: JSON.stringify(contact),
         headers: {
@@ -131,7 +131,7 @@ function resetForm() {
 }
 
 function removeContact(id) {
-    fetch('https://5dd3d5ba8b5e080014dc4bfa.mockapi.io/users/' + id, {
+    fetch(API_URL + '/' + id, {
             method: 'DELETE',
         })
         .then((data) => {
