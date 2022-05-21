@@ -1,4 +1,5 @@
 const DELETE_BTN_CLASS = 'delete-button';
+const EDIT_BTN_CLASS = 'edit-btn';
 const CONTACT_ROW_SELECTOR = '.contact-row';
 const ERROR_TEXT = 'Some of your fields are not valid';
 const STORAGE_KEY = 'contactsList'
@@ -19,10 +20,10 @@ init();
 function onContactFormSubmit(event) {
     event.preventDefault();
 
-    const newContact = getContact();
+    const newContact = getFormData();
 
     if (isContactValid(newContact)) {
-        addContact(newContact);
+        saveContact(newContact);
         resetForm();
     } else {
         alert(ERROR_TEXT);
@@ -31,8 +32,12 @@ function onContactFormSubmit(event) {
 
 function onContactsListClick(e) {
     if (e.target.classList.contains(DELETE_BTN_CLASS)) {
-        const id = getContactId(e.target);
+        const id = getContactRowId(e.target);
         removeContact(id);
+    }
+    if (e.target.classList.contains(EDIT_BTN_CLASS)) {
+        const id = getContactRowId(e.target);
+        editContact(id);
     }
 }
 
@@ -50,7 +55,7 @@ function fetchList() {
         })
 }
 
-function getContact() {
+function getFormData() {
     const contact = {};
 
     formInputs.forEach(input => {
@@ -61,10 +66,16 @@ function getContact() {
 
 }
 
+function setFormData(contact) {
+    formInputs.forEach((inp) => {
+        inp.value = contact[inp.name];
+    });
+}
+
 function isContactValid(contact) {
     return (
         isTextValid(contact.name) &&
-        isTextValid(contact.surname) &&
+        isTextValid(contact.email) &&
         isPhoneValid(contact.phone)
     );
 }
@@ -77,8 +88,32 @@ function isPhoneValid(value) {
     return isTextValid(value) && !isNaN(value);
 }
 
+function generateContactHtml(contact) {
+    return interpolate(contactTemplate, contact);
+}
+
+function saveContact(contact) {
+    if (contact.id) {
+        updateContact(contact);
+    } else {
+        addContact(contact);
+    }
+}
+
+function updateContact(contact) {
+    fetch('https://5dd3d5ba8b5e080014dc4bfa.mockapi.io/users/' + contact.id, {
+        method: "PUT",
+        body: JSON.stringify(contact),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }).then((data) => {
+        fetchList();
+    });
+}
+
 function addContact(contact) {
-    fetch('https://5dd3d5ba8b5e080014dc4bfa.mockapi.io/users/', {
+    fetch('https://5dd3d5ba8b5e080014dc4bfa.mockapi.io/users', {
         method: 'POST',
         body: JSON.stringify(contact),
         headers: {
@@ -89,17 +124,10 @@ function addContact(contact) {
     })
 }
 
-
-function renderList() {
-    contactsList.innerHTML = contactsListArray.map(generateContactHtml).join('\n');
-}
-
-function generateContactHtml(contact) {
-    return interpolate(contactTemplate, contact);
-}
-
 function resetForm() {
-    contactForm.reset();
+    formInputs.forEach((inp) => {
+        inp.value = '';
+    });
 }
 
 function removeContact(id) {
@@ -111,9 +139,12 @@ function removeContact(id) {
         })
 }
 
-function getContactId(el) {
-    const contact = el.closest(CONTACT_ROW_SELECTOR);
-    return +contact.dataset.id;
+function getContactRowId(el) {
+    return el.closest(CONTACT_ROW_SELECTOR).dataset.id;
+}
+
+function renderList() {
+    contactsList.innerHTML = contactsListArray.map(generateContactHtml).join('\n');
 }
 
 function interpolate(template, object) {
@@ -128,12 +159,8 @@ function interpolate(template, object) {
     return template;
 }
 
-function saveData() {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(contactsListArray))
-}
-
-function restoreData() {
-    const data = localStorage.getItem(STORAGE_KEY)
-
-    return data ? JSON.parse(data) : [];
+function editContact(id) {
+    const contact = contactsListArray.find((contact) => contact.id === id);
+    currentId = id;
+    setFormData(contact);
 }

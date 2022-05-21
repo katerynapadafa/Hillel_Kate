@@ -1,0 +1,15 @@
+body {
+    background-color: darkolivegreen;
+    display: flex;
+    justify-content: center;
+    font-size: 22px;
+}
+
+input {
+    width: 260px;
+}
+
+button {
+    color: cadetblue;
+    width: 125px
+}

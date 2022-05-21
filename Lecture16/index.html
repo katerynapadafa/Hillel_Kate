@@ -27,13 +27,14 @@
             <tfoot id="phone-book-list-foot">
                 <tr>
                     <td>
+                        <input type="hidden" name="id" class="form-input" />
                         <input type="text" name="name" id="nameInput" class="input" placeholder="Name" />
                     </td>
                     <td>
                         <input type="text" name="phone" id="phoneInput" class="input" placeholder="Phone number" />
                     </td>
                     <td>
-                        <input type="text" name="email" id="email" class="input" placeholder="E-mail" />
+                        <input type="text" name="email" id="emailInput" class="input" placeholder="E-mail" />
                     </td>
                     <td>
                         <input type="hidden" name="id" class="input">
@@ -49,6 +50,7 @@
             <td>{{name}}</td>
             <td>{{phone}}</td>
             <td>{{email}}</td>
+            <td><button type="button" class="edit-btn">Edit</button></td>
             <td><button type="button" class="delete-button">Delete</button></td>
         </tr>
     </script>
