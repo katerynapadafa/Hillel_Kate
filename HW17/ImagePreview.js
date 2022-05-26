@@ -1,5 +1,5 @@
  class ImagePreview {
-     VISIBLE_CLASS = 'visible';
+     static VISIBLE_CLASS = 'visible';
      constructor() {
          this._initElements();
      }
@@ -35,7 +35,6 @@
      }
 
      hide() {
-         console.log(this);
          this._el.classList.remove(ImagePreview.VISIBLE_CLASS);
      }
  }

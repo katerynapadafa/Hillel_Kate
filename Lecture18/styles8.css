@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    font-size: 25px;
+    background: rgba(128, 128, 0, 0.134);
+}
+
+header {
+    background-color: rgba(128, 128, 0, 0.451);
+    height: 80px;
+    width: 100%;
+}
+
+#createBtn {
+    width: 150px;
+    height: 50px;
+    border-radius: 4px;
+    border: 1px solid rgb(128, 128, 0);
+    background-color: rgba(128, 128, 0, 0.406);
+    color: rgb(72, 72, 0);
+    font-size: 20px;
+    margin-left: 80%;
+    margin-top: 1%;
+}
+
+#createBtn:hover {
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+}
+
+#createBtn:active {
+    background: rgb(255, 255, 255);
+    color: olive;
+}
