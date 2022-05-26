@@ -1,7 +1,5 @@
- VISIBLE_CLASS = 'visible';
-
  class ImagePreview {
-
+     VISIBLE_CLASS = 'visible';
      constructor() {
          this._initElements();
      }
