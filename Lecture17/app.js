@@ -19,6 +19,7 @@ const preview = new ImagePreview();
 albumsEl.addEventListener('click', onAlbumsElClick);
 photosEl.addEventListener('click', onPhotosElClick);
 
+let stickerzList = []
 init();
 
 function onAlbumsElClick(e) {

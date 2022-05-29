@@ -1,4 +1,5 @@
 class RestApi {
+    static VISIBLE_CLASS = 'visible'
     constructor(baseUrl) {
         this._baseUrl = baseUrl;
     }
