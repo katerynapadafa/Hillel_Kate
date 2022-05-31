@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles8.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js" defer></script>
+    <script src="../common/RestApi.js" defer></script>
+    <script src="../common/utils.js" defer></script>
+    <script src="scriptHW.js" defer></script>
+    <title>STICKERZ</title>
+</head>
+
+<body>
+    <header>
+        <div class="title">STICKERZ</div>
+        <button id="createBtn">Create</button>
+    </header>
+    <div class="container">
+
+
+
+    </div>
+    <script type="text/template" id="sticker-template">
+        <div class="sticker" data-sticker-index="{{id}}">
+            <button type="button" class="deleteBtn">x</button>
+            <textarea class="sticker-body" name="description" id="">{{description}}</textarea>
+        </div>
+    </script>
+
+</body>
+
+</html>

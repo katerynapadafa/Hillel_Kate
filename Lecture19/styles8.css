@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    font-size: 25px;
+    background: rgba(128, 128, 0, 0.134);
+}
+
+header {
+    background-color: rgba(128, 128, 0, 0.451);
+    height: 80px;
+    width: 100%;
+    display: flex;
+}
+
+.title {
+    color: rgb(72, 72, 0);
+    font-size: 40px;
+    text-decoration: wavy;
+    margin: 1% 0 0 33px;
+}
+
+#createBtn {
+    width: 150px;
+    height: 50px;
+    border-radius: 4px;
+    border: 1px solid rgb(128, 128, 0);
+    background-color: rgba(128, 128, 0, 0.406);
+    color: rgb(72, 72, 0);
+    font-size: 20px;
+    margin-left: 60%;
+    margin-top: 1%;
+}
+
+.deleteBtn:hover,
+#createBtn:hover {
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+}
+
+.deleteBtn:active,
+#createBtn:active {
+    background: rgb(255, 255, 255);
+    color: olive;
+}
+
+.sticker {
+    width: 200px;
+    height: 200px;
+    border: 1px solid olive;
+    border-radius: 4px;
+    margin: 5% 10%;
+}
+
+.sticker-header {
+    background-color: rgba(128, 128, 0, 0.451);
+    padding: 0;
+    height: 40px;
+}
+
+.deleteBtn {
+    border-radius: 4px;
+    border: 1px solid rgb(128, 128, 0);
+    background-color: rgba(128, 128, 0, 0.406);
+    color: rgb(72, 72, 0);
+    font-size: 15px;
+    margin-left: 75%;
+    margin-top: 1%;
+    width: 40px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr
+}
+
+.sticker-body {
+    width: 177px;
+    height: 130px;
+    padding: 5%;
+    margin-top: 5px;
+}
