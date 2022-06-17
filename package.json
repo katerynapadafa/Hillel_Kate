@@ -1,25 +1,28 @@
 {
-  "name": "hillel_kate",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/katerynapadafa/Hillel_Kate.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/katerynapadafa/Hillel_Kate/issues"
-  },
-  "homepage": "https://github.com/katerynapadafa/Hillel_Kate#readme",
-  "dependencies": {
-    "body-parser": "^1.20.0",
-    "express": "^4.17.3"
-  }
+    "name": "hillel_kate",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "dependencies": {
+        "loose-envify": "^1.4.0",
+        "jquery": "^3.6.0",
+        "lodash": "^1.2.0",
+        "js-tokens": "^4.0.0",
+        "react": "^18.1.0"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node ./Lecture22/app.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/katerynapadafa/Hillel_Kate.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/katerynapadafa/Hillel_Kate/issues"
+    },
+    "homepage": "https://github.com/katerynapadafa/Hillel_Kate#readme"
 }
