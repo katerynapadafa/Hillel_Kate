@@ -1,28 +1,10 @@
 {
-    "name": "hillel_kate",
-    "version": "1.0.0",
-    "description": "",
-    "main": "server.js",
-    "dependencies": {
-        "loose-envify": "^1.4.0",
-        "jquery": "^3.6.0",
-        "lodash": "^1.2.0",
-        "js-tokens": "^4.0.0",
-        "react": "^18.1.0"
-    },
-    "devDependencies": {},
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node ./Lecture22/app.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/katerynapadafa/Hillel_Kate.git"
-    },
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/katerynapadafa/Hillel_Kate/issues"
-    },
-    "homepage": "https://github.com/katerynapadafa/Hillel_Kate#readme"
+  "devDependencies": {
+    "css-loader": "^6.7.1",
+    "gulp-uglify": "^3.0.2",
+    "html-webpack-plugin": "^5.5.0"
+  },
+  "dependencies": {
+    "gulp": "^4.0.2"
+  }
 }

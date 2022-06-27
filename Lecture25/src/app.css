@@ -1,0 +1,88 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    flex-direction: column;
+    color: white;
+}
+
+#addButton {
+    color: white;
+    background-color: rgb(255, 166, 0);
+    font-size: 40px;
+    border: none;
+    width: 120px;
+    height: 65px;
+}
+
+#addButton:hover {
+    color: orange;
+    background-color: white;
+    cursor: pointer;
+}
+
+#addButton:active {
+    background-color: rgb(175, 227, 175);
+}
+
+.delete-button {
+    border: none;
+    background-color: rgb(255, 186, 172);
+    width: 90px;
+    font-size: 20px;
+}
+
+.delete-button:hover {
+    background-color: rgb(232, 120, 120);
+}
+
+.delete-button:active {
+    background-color: rgb(139, 34, 34);
+}
+
+h1 {
+    font-size: 100px;
+}
+
+#list {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#input {
+    width: 600px;
+    height: 60px;
+    font-size: 40px;
+}
+
+#error {
+    color: red;
+    font-size: 40px;
+}
+
+.invalid {
+    color: red;
+    border: 2px solid red;
+    font-size: 40px;
+}
+
+input {
+    outline: none;
+}
+
+.to-do {
+    font-size: 40px;
+    border: 1px solid white;
+    padding: 15px;
+    width: 700px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+
+.done {
+    background-color: rgb(175, 227, 175);
+}

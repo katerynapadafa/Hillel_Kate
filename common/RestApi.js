@@ -1,4 +1,4 @@
-class RestApi {
+export default class RestApi {
     static VISIBLE_CLASS = 'visible'
     constructor(baseUrl) {
         this._baseUrl = baseUrl;
@@ -7,7 +7,7 @@ class RestApi {
     static getQueryString(query) {
         let result = '';
 
-        for (key in query) {
+        for (let key in query) {
             result += result ? '&' : '?';
             result += `${key}=${query[key]}`;
         }
