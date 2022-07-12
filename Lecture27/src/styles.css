@@ -1,0 +1,39 @@
+body {
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    flex-direction: row-reverse;
+    background-color: rgb(45, 45, 45);
+    color: white;
+}
+
+input {
+    font-size: 20px;
+    width: 300px;
+    height: 40px;
+}
+
+#container {
+    font-size: 22px;
+    color: antiquewhite;
+}
+
+#sendBtn {
+    font-size: 20px;
+    border: none;
+    width: 306px;
+    height: 45px;
+    color: lightblue;
+    background-color: rgb(73, 159, 220);
+    outline: 0;
+}
+
+#sendBtn:hover {
+    cursor: pointer;
+    background-color: blue;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+}
