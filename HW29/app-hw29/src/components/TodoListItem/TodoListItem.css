@@ -1,0 +1,15 @@
+.task-item {
+    font-size: 18px;
+    background-color: rgb(167, 167, 167);
+    width: 506px;
+    height: 40px;
+    border: 0.5px solid black;
+    padding: 3px 10px 3px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.done {
+    background: rgb(122, 222, 122);
+}
