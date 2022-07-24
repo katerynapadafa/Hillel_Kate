@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { createTodo, getTodoList, removeTodo, updateTodo } from '../../api';
 
-// import { API_URL } from '../../config';
 import NewTodoForm from '../NewTodoForm/NewTodoForm';
 import TodoList from '../TodoList/TodoList';
 

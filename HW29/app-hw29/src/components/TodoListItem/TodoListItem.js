@@ -7,7 +7,7 @@ export default class TodoListItem extends Component {
         return (
             <div
                 className={
-                    'task-item u-full-width' +
+                    'task-item' +
                     (this.props.item.isDone ? ' done' : '')
                 }
                 onClick={this.onItemClick}
