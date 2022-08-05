@@ -1,3 +1,4 @@
+// const createAction =(type)=> (payload)=>({type, payload})
 export const TODOS_TOGGLE_TODO =' TODOS_TOGGLE_TODO'
 export const toggleTodo= createAction(TODOS_TOGGLE_TODO)
   
