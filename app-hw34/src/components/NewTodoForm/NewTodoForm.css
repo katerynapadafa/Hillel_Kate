@@ -1,0 +1,13 @@
+.todo-input {
+    margin-top: 10px;
+    width: 520px;
+    height: 40px;
+}
+
+#addBtn {
+    width: 527px;
+    height: 40px;
+    color: white;
+    background-color: rgb(182, 182, 235);
+    border: none;
+}
